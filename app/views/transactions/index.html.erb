@@ -26,14 +26,14 @@
             <%= transaction.client_full_name %>
           </td>
           <td>
-            <% if transaction.manager %>
-              <%= transaction.manager.full_name %>
-            <% end %>
+            <%= transaction.manager&.full_name %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+
+  <%= paginate @transactions %>
 
   <ul class="links-list">
     <li><%= link_to "Create 0-100 USD Transaction", new_transaction_path(type: 'small') %></li>
